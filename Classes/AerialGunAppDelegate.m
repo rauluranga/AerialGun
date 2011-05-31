@@ -12,6 +12,7 @@
 #import "GameConfig.h"
 #import "HelloWorldScene.h"
 #import "RootViewController.h"
+#import "SplashScene.h"
 
 @implementation AerialGunAppDelegate
 
@@ -110,7 +111,8 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [HelloWorld scene]];		
+	//[[CCDirector sharedDirector] runWithScene: [HelloWorld scene]];
+	[[CCDirector sharedDirector] runWithScene: [SplashScene	node]];
 }
 
 
