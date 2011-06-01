@@ -9,6 +9,7 @@
 #import "GameScene.h"
 
 
+
 @implementation GameScene
 
 -(void) dealloc 
@@ -52,9 +53,40 @@
 	if ((self = [super init])) {
 		//[self addChild:[MainMenuLayer node]];
 		hero = [[Hero alloc] initWithGame:self];
+		
+		enemies = [[NSMutableArray alloc] initWithCapacity:10];
+		
+		for (int i=0; i<10; i++) {
+			Enemy *e = [[Enemy alloc] initWithGame:self];
+			[enemies addObject:e];
+			[e release];
+		}
+		
+		lastTimeEnemyLaunched = 0;
+		enemyInterval = 20;
+		self.lives = STARTING_LIVES;
+		[self schedule:@selector(step:)];
 	}
 	return self;
 }
 
+-(void)step:(ccTime *)dt
+{
+	for (Enemy *e in enemies) {
+		if (e.launched) {
+			[e update];
+		}
+	}
+	
+	if (self.lastTimeEnemyLaunched > self.enemyInterval) {
+		Enemy *n = (Enemy *) [enemies objectAtIndex:arc4random()% [enemies count]];
+		if (!n.launched) {
+			[n launch];
+			self.lastTimeEnemyLaunched = 0;
+		}
+	}
+	
+	lastTimeEnemyLaunched += 0.1;
+}
 
 @end

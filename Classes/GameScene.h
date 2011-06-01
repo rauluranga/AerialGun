@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "Hero.h"
+#import "Enemy.h"
+
+#define STARTING_LIVES 3
 
 @class Hero;
 

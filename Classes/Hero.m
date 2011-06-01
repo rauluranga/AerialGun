@@ -27,6 +27,7 @@
 {
 	if ((self = [super init])) {
 		self.theGame = game;
+		
 		mySprite = [CCSprite spriteWithFile:@"hero.png"];
 		[mySprite setPosition:ccp(160,50)];
 		
