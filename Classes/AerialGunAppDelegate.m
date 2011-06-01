@@ -10,9 +10,9 @@
 
 #import "AerialGunAppDelegate.h"
 #import "GameConfig.h"
-#import "HelloWorldScene.h"
 #import "RootViewController.h"
 #import "SplashScene.h"
+#import "GameScene.h"
 
 @implementation AerialGunAppDelegate
 
@@ -83,12 +83,13 @@
 	// By default, this template only supports Landscape orientations.
 	// Edit the RootViewController.m file to edit the supported orientations.
 	//
+	
 #if GAME_AUTOROTATION == kGameAutorotationUIViewController
 	[director setDeviceOrientation:kCCDeviceOrientationPortrait];
 #else
 	[director setDeviceOrientation:kCCDeviceOrientationLandscapeLeft];
 #endif
-	
+		
 	[director setAnimationInterval:1.0/60];
 	[director setDisplayFPS:YES];
 	
@@ -112,7 +113,8 @@
 	
 	// Run the intro Scene
 	//[[CCDirector sharedDirector] runWithScene: [HelloWorld scene]];
-	[[CCDirector sharedDirector] runWithScene: [SplashScene	node]];
+	//[[CCDirector sharedDirector] runWithScene: [SplashScene	node]];
+	[[CCDirector sharedDirector] runWithScene: [GameScene	node]];
 }
 
 

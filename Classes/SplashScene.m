@@ -70,8 +70,20 @@
 {
 	if ([images count] <= 1) {
 		[images release];
-		[[CCDirector sharedDirector] replaceScene:[MainMenuScene node]];
+		//TODO: book says CCFadeTransition should be CCTransitionFade
+		/*/
+		[[CCDirector sharedDirector] replaceScene: [CCTransitionFade 
+															transitionWithDuration:2 
+															scene:[MainMenuScene node] 
+															withColor:ccBLUE ]];
+		/*/
+		[[CCDirector sharedDirector] replaceScene: [CCTransitionZoomFlipAngular 
+															transitionWithDuration:2 
+															scene:[MainMenuScene node] 
+															orientation:kOrientationLeftOver ]];
+		//*/
 	} else {
+		
 		CCSprite *actual = (CCSprite *) [images objectAtIndex:0];
 		[images removeObjectAtIndex:0];
 		
