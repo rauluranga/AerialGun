@@ -62,10 +62,19 @@
 			[e release];
 		}
 		
+		bullets = [[NSMutableArray alloc] initWithCapacity:50];
+		
+		for (int i=0; i<50; i++) {
+			Bullet *c = [[Bullet alloc] initWithGame:self];
+			[bullets addObject:c];
+			[c release];
+		}
+		
 		lastTimeEnemyLaunched = 0;
 		enemyInterval = 20;
 		self.lives = STARTING_LIVES;
 		[self schedule:@selector(step:)];
+		
 	}
 	return self;
 }
@@ -75,6 +84,12 @@
 	for (Enemy *e in enemies) {
 		if (e.launched) {
 			[e update];
+		}
+	}
+	
+	for (Bullet *b in bullets) {
+		if (b.fired) {
+			[b update];
 		}
 	}
 	

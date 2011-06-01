@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 #import "Hero.h"
 #import "Enemy.h"
+#import "Bullet.h"
 
 #define STARTING_LIVES 3
 

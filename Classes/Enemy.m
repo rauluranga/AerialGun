@@ -98,6 +98,18 @@
 -(void) update
 {
 	[self.mySprite setPosition:ccp(self.mySprite.position.x, self.mySprite.position.y - self.movementSpeed) ];
+	
+	for (Bullet *b in theGame.bullets) {
+		 if (self.fireInterval > 0 && !b.fired && self.lasTimeFired > self.fireInterval) {
+			 NSLog(@"Fire!!");
+			 [b fire:2 position:self.mySprite.position fspeed:self.firingSpeed];
+			 self.lasTimeFired = 0;
+		 }
+	}
+	
+	self.lasTimeFired +=0.1;
+	
+	
 	if (self.mySprite.position.y < - 20) {
 		[self reset];
 	}
