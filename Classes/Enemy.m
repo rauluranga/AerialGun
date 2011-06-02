@@ -158,6 +158,10 @@
 {
 	[self reset];
 	[theGame setScore:theGame.score + 100];
+	
+	HUDLayer *hl = (HUDLayer *) [theGame.parent getChildByTag:kHudLayer];
+	[hl.score setString:[NSString stringWithFormat:@"Score %d",theGame.score]];
+	
 	NSLog(@"%d",theGame.score);
 }
 

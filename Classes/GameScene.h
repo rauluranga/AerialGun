@@ -12,8 +12,11 @@
 #import "Enemy.h"
 #import "Bullet.h"
 #import "AccelerometerSimulation.h"
+#import "HUDLayer.h"
 
 #define STARTING_LIVES 3
+#define kGameLayer 1
+#define kHudLayer 2
 
 @class Hero;
 

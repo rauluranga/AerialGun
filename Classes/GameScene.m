@@ -8,6 +8,17 @@
 
 #import "GameScene.h"
 
+
+@interface GameLayer (private)
+
+-(void) resetGame;
+
+@end
+
+
+
+
+
 @implementation GameScene
 
 -(void) dealloc 
@@ -18,7 +29,8 @@
 -(id) init 
 {
 	if ((self = [super init])) {
-		[self addChild:[GameLayer node]];
+		[self addChild:[GameLayer node] z:0 tag:kGameLayer];
+		[self addChild:[HUDLayer node] z:1 tag:kHudLayer];
 	}
 	return self;
 }
@@ -188,9 +200,45 @@
 -(void)loseLife
 {
 	self.lives--;
+	
+	
+	HUDLayer *hl = (HUDLayer *) [self.parent getChildByTag:kHudLayer];
+	
+	CCSprite *live = [hl.lives objectAtIndex:self.lives];
+	[live setVisible:NO];
+	
 	if (self.lives == 0) {
 		NSLog(@"GAME OVER");
+		[self resetGame];
 	}
 }
 
 @end
+
+
+#pragma mark -
+#pragma mark Private implementation
+
+@implementation GameLayer (private)
+
+-(void)resetGame
+{
+	HUDLayer *hl = (HUDLayer *) [self.parent getChildByTag:kHudLayer];
+	
+	for (CCSprite *c in hl.lives) {
+		[c setVisible:YES];
+	}
+	
+	self.level = 1;
+	[hl.level setString:@"Level 1"];
+	
+	self.score = 0;
+	[hl.score setString:@"Score 0"];
+	
+	self.bombs = 3;
+	[hl.bombs setString:@"X3"];
+	
+	lives = STARTING_LIVES;
+}
+@end
+
