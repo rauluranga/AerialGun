@@ -74,6 +74,7 @@
 		C49A93751396AB2A00C26B5A /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = C49A93741396AB2A00C26B5A /* Enemy.m */; };
 		C49A93D11396EB9D00C26B5A /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = C49A93D01396EB9D00C26B5A /* Bullet.m */; };
 		C49A93D71396ECC400C26B5A /* bullet1.png in Resources */ = {isa = PBXBuildFile; fileRef = C49A93D61396ECC400C26B5A /* bullet1.png */; };
+		C4ED727713970E2A00D9DCB2 /* AccelerometerSimulation.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ED727613970E2A00D9DCB2 /* AccelerometerSimulation.m */; };
 		C4F867281395A9660067B712 /* splash1.png in Resources */ = {isa = PBXBuildFile; fileRef = C4F867251395A9660067B712 /* splash1.png */; };
 		C4F867291395A9660067B712 /* splash2.png in Resources */ = {isa = PBXBuildFile; fileRef = C4F867261395A9660067B712 /* splash2.png */; };
 		C4F8672A1395A9660067B712 /* splash3.png in Resources */ = {isa = PBXBuildFile; fileRef = C4F867271395A9660067B712 /* splash3.png */; };
@@ -343,6 +344,8 @@
 		C49A93CF1396EB9D00C26B5A /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
 		C49A93D01396EB9D00C26B5A /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bullet.m; sourceTree = "<group>"; };
 		C49A93D61396ECC400C26B5A /* bullet1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet1.png; sourceTree = "<group>"; };
+		C4ED727513970E2A00D9DCB2 /* AccelerometerSimulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerometerSimulation.h; sourceTree = "<group>"; };
+		C4ED727613970E2A00D9DCB2 /* AccelerometerSimulation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccelerometerSimulation.m; sourceTree = "<group>"; };
 		C4F867251395A9660067B712 /* splash1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash1.png; sourceTree = "<group>"; };
 		C4F867261395A9660067B712 /* splash2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash2.png; sourceTree = "<group>"; };
 		C4F867271395A9660067B712 /* splash3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash3.png; sourceTree = "<group>"; };
@@ -583,6 +586,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				C4ED727413970E0100D9DCB2 /* Simulator Classes */,
 				504DFC6810AF1739006D82FE /* LICENSE.cocos2d */,
 				504DFC6910AF1739006D82FE /* LICENSE.cocosdenshion */,
 				506EDAA3102F461B00A389B3 /* cocos2d Sources */,
@@ -772,6 +776,15 @@
 				50F414EF1069373D002A0D5E /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		C4ED727413970E0100D9DCB2 /* Simulator Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C4ED727513970E2A00D9DCB2 /* AccelerometerSimulation.h */,
+				C4ED727613970E2A00D9DCB2 /* AccelerometerSimulation.m */,
+			);
+			name = "Simulator Classes";
 			sourceTree = "<group>";
 		};
 		E02BB764126CC223006E46A2 /* cocos2d */ = {
@@ -1207,6 +1220,7 @@
 				C49A93231396A44600C26B5A /* Hero.m in Sources */,
 				C49A93751396AB2A00C26B5A /* Enemy.m in Sources */,
 				C49A93D11396EB9D00C26B5A /* Bullet.m in Sources */,
+				C4ED727713970E2A00D9DCB2 /* AccelerometerSimulation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -101,7 +101,6 @@
 	
 	for (Bullet *b in theGame.bullets) {
 		 if (self.fireInterval > 0 && !b.fired && self.lasTimeFired > self.fireInterval) {
-			 NSLog(@"Fire!!");
 			 [b fire:2 position:self.mySprite.position fspeed:self.firingSpeed];
 			 self.lasTimeFired = 0;
 		 }

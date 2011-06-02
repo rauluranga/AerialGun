@@ -11,6 +11,7 @@
 #import "Hero.h"
 #import "Enemy.h"
 #import "Bullet.h"
+#import "AccelerometerSimulation.h"
 
 #define STARTING_LIVES 3
 

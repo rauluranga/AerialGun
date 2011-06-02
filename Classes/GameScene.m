@@ -8,8 +8,6 @@
 
 #import "GameScene.h"
 
-
-
 @implementation GameScene
 
 -(void) dealloc 
@@ -28,6 +26,8 @@
 
 @end
 
+#pragma mark -
+#pragma mark GameLayer Public implementation
 
 @implementation GameLayer
 
@@ -42,15 +42,24 @@
 @synthesize bombs;
 @synthesize level;
 
+#pragma mark -
+#pragma mark Memory management
 
 -(void) dealloc 
 {
 	[super dealloc];
 }
 
+#pragma mark -
+#pragma mark Public Methods
+
 -(id) init 
 {
 	if ((self = [super init])) {
+		
+		self.isAccelerometerEnabled = true;
+		[[UIAccelerometer sharedAccelerometer] setUpdateInterval:(1.0 / 60)];
+		
 		//[self addChild:[MainMenuLayer node]];
 		hero = [[Hero alloc] initWithGame:self];
 		
@@ -103,5 +112,35 @@
 	
 	lastTimeEnemyLaunched += 0.1;
 }
+
+#pragma mark -
+#pragma mark accelerometer
+
+
+- (void)accelerometer:(UIAccelerometer*)accelerometer didAccelerate:(UIAcceleration*)acceleration
+{	
+	static float prevX=0, prevY=0;
+	
+#define kFilterFactor 0.05f
+	
+	float accelX = (float) acceleration.x * kFilterFactor + (1- kFilterFactor)*prevX;
+	float accelY = (float) acceleration.y * kFilterFactor + (1- kFilterFactor)*prevY;
+	
+	prevX = accelX;
+	prevY = accelY;
+	
+	if(hero)
+	{
+		float speed = -20 * -accelX;
+		if(speed > hero.movementSpeed)
+			speed = hero.movementSpeed;
+		else if(speed < -hero.movementSpeed)
+			speed = -hero.movementSpeed;
+		
+		if((accelX >0 || hero.mySprite.position.x >hero.mySprite.textureRect.size.width / 2) && ( accelX <0 ||hero.mySprite.position.x <320- hero.mySprite.textureRect.size.width / 2))
+			[hero.mySprite setPosition:ccp(hero.mySprite.position.x +speed,hero.mySprite.position.y)];
+	}
+}
+
 
 @end
