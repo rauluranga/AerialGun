@@ -11,6 +11,7 @@
 
 @interface Enemy (private)
 
+-(void) destroy;
 -(void) reset;
 
 @end
@@ -120,6 +121,19 @@
 	[self.mySprite setPosition:ccp(arc4random() % 260, 520) ];
 }
 
+-(void) damage
+{
+	self.hp--;
+	[self.mySprite runAction:[CCSequence actions:
+							  [CCTintTo actionWithDuration:0.5 red:255 green:0 blue:0],
+							  [CCTintTo actionWithDuration:0.5 red:255 green:255 blue:255],
+							  nil
+							  ]];
+	if (hp < 0) {
+		[self destroy];
+	}
+}
+
 //-(CGRect)myRecta
 //{
 //	return CGRect();
@@ -131,6 +145,13 @@
 #pragma mark Private implementation
 
 @implementation Enemy (private)
+
+-(void) destroy
+{
+	[self reset];
+	[theGame setScore:theGame.score + 100];
+	NSLog(@"%d",theGame.score);
+}
 
 -(void) reset
 {

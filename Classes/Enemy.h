@@ -41,5 +41,6 @@
 -(id) initWithGame:(GameLayer *)game;
 -(void) update;
 -(void) launch;
--(CGRect)myRecta;
+-(void) damage;
+//-(CGRect)myRecta;
 @end

@@ -53,4 +53,7 @@
 @property (assign, readwrite) int level;
 
 
+-(CGRect)myRect:(CCSprite *)sp;
+
+
 @end

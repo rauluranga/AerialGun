@@ -171,4 +171,18 @@
 	}
 }
 
+/*
+ *	The myRect method returns a CGRect object representing the boundaries of the object.
+ *	In this case, we are making a CGRect of the exact size of the sprite,
+ *	but you could make it bigger or smaller if you needed to.
+ */
+-(CGRect)myRect:(CCSprite *)sp
+{
+	CGRect c = CGRectMake(sp.position.x-(sp.textureRect.size.width/2) * sp.scaleX ,
+						  sp.position.y-(sp.textureRect.size.height/2)* sp.scaleY,
+						  sp.textureRect.size.width * sp.scaleX,
+						  sp.textureRect.size.height * sp.scaleY);
+	return c;
+}
+
 @end
