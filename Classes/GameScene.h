@@ -13,6 +13,8 @@
 #import "Bullet.h"
 #import "AccelerometerSimulation.h"
 #import "HUDLayer.h"
+#import "PauseLayer.h"
+#import "AerialGunAppDelegate.h"
 
 #define STARTING_LIVES 3
 #define kGameLayer 1
@@ -58,6 +60,8 @@
 
 -(CGRect)myRect:(CCSprite *)sp;
 -(void)loseLife;
+-(void)pauseGame;
+-(void)resume;
 
 
 @end

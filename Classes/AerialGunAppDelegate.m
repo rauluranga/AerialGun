@@ -17,6 +17,14 @@
 @implementation AerialGunAppDelegate
 
 @synthesize window;
+@synthesize paused;
+
+
++(AerialGunAppDelegate *)get
+{
+	return (AerialGunAppDelegate *) [[UIApplication sharedApplication] delegate];
+}
+
 
 - (void) removeStartupFlicker
 {

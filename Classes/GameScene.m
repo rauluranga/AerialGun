@@ -213,6 +213,39 @@
 	}
 }
 
+-(void)pauseGame
+{
+	ccColor4B c = {100,100,0,100};
+	PauseLayer * p = [[[PauseLayer alloc] initWithColor:c] autorelease];
+	[self.parent addChild:p z:10];
+	[self onExit];
+}
+
+
+-(void)resume
+{
+	if (![AerialGunAppDelegate get].paused) {
+		return;
+	}
+	[AerialGunAppDelegate get].paused = NO;
+	[self onEnter];
+}
+
+-(void)onEnter
+{
+	if ([AerialGunAppDelegate get].paused) {
+		[super onEnter];
+	}
+}
+
+-(void)onExit
+{
+	if (![AerialGunAppDelegate get].paused) {
+		[AerialGunAppDelegate get].paused = YES;
+		[super onExit];
+	}
+}
+
 @end
 
 

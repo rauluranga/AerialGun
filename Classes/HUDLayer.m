@@ -27,6 +27,9 @@
 {
 	if ((self = [super init])) {
 		
+		//!!!: the following line is missing in the book
+		self.isTouchEnabled = YES;
+
 		CCSprite *background = [CCSprite spriteWithFile:@"hud_background.png"];
 		[background setPosition:ccp(160,455)];
 		[self addChild:background];
@@ -70,5 +73,21 @@
 	
 	return self;
 }
+
+- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	GameLayer *gl = (GameLayer *)[self.parent getChildByTag:kGameLayer];
+
+	for(UITouch *touch in touches)
+	{
+		CGPoint location = [touch locationInView: [touch view]];
+		location = [[CCDirector sharedDirector] convertToGL:location];
+				
+		if (location.y > 400) {
+			[gl pauseGame];
+		}
+	}
+}
+
 
 @end

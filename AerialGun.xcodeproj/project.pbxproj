@@ -71,6 +71,8 @@
 		C4706B17139813C8008E9405 /* hud_font_0.png in Resources */ = {isa = PBXBuildFile; fileRef = C4706B12139813C8008E9405 /* hud_font_0.png */; };
 		C4706B18139813C8008E9405 /* hud_font.fnt in Resources */ = {isa = PBXBuildFile; fileRef = C4706B13139813C8008E9405 /* hud_font.fnt */; };
 		C4706B19139813C8008E9405 /* hud_life.png in Resources */ = {isa = PBXBuildFile; fileRef = C4706B14139813C8008E9405 /* hud_life.png */; };
+		C4706B62139844CD008E9405 /* PauseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C4706B61139844CD008E9405 /* PauseLayer.m */; };
+		C4706B6A139846A2008E9405 /* paused.png in Resources */ = {isa = PBXBuildFile; fileRef = C4706B69139846A2008E9405 /* paused.png */; };
 		C49A93231396A44600C26B5A /* Hero.m in Sources */ = {isa = PBXBuildFile; fileRef = C49A93221396A44600C26B5A /* Hero.m */; };
 		C49A93471396A6BE00C26B5A /* Hero.png in Resources */ = {isa = PBXBuildFile; fileRef = C49A93461396A6BE00C26B5A /* Hero.png */; };
 		C49A936F1396AB1A00C26B5A /* enemy1.png in Resources */ = {isa = PBXBuildFile; fileRef = C49A936B1396AB1A00C26B5A /* enemy1.png */; };
@@ -345,6 +347,9 @@
 		C4706B12139813C8008E9405 /* hud_font_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hud_font_0.png; sourceTree = "<group>"; };
 		C4706B13139813C8008E9405 /* hud_font.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hud_font.fnt; sourceTree = "<group>"; };
 		C4706B14139813C8008E9405 /* hud_life.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hud_life.png; sourceTree = "<group>"; };
+		C4706B60139844CD008E9405 /* PauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseLayer.h; sourceTree = "<group>"; };
+		C4706B61139844CD008E9405 /* PauseLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PauseLayer.m; sourceTree = "<group>"; };
+		C4706B69139846A2008E9405 /* paused.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paused.png; sourceTree = "<group>"; };
 		C49A93211396A44600C26B5A /* Hero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hero.h; sourceTree = "<group>"; };
 		C49A93221396A44600C26B5A /* Hero.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hero.m; sourceTree = "<group>"; };
 		C49A93461396A6BE00C26B5A /* Hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hero.png; sourceTree = "<group>"; };
@@ -661,6 +666,8 @@
 				C49A93D01396EB9D00C26B5A /* Bullet.m */,
 				C4706AFB13981276008E9405 /* HUDLayer.h */,
 				C4706AFC13981276008E9405 /* HUDLayer.m */,
+				C4706B60139844CD008E9405 /* PauseLayer.h */,
+				C4706B61139844CD008E9405 /* PauseLayer.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -770,6 +777,7 @@
 		50F414EB1069373D002A0D5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C4706B69139846A2008E9405 /* paused.png */,
 				C4706B10139813C8008E9405 /* hud_background.png */,
 				C4706B11139813C8008E9405 /* hud_bomb.png */,
 				C4706B12139813C8008E9405 /* hud_font_0.png */,
@@ -1225,6 +1233,7 @@
 				C4706B17139813C8008E9405 /* hud_font_0.png in Resources */,
 				C4706B18139813C8008E9405 /* hud_font.fnt in Resources */,
 				C4706B19139813C8008E9405 /* hud_life.png in Resources */,
+				C4706B6A139846A2008E9405 /* paused.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1247,6 +1256,7 @@
 				C49A93D11396EB9D00C26B5A /* Bullet.m in Sources */,
 				C4ED727713970E2A00D9DCB2 /* AccelerometerSimulation.m in Sources */,
 				C4706AFD13981276008E9405 /* HUDLayer.m in Sources */,
+				C4706B62139844CD008E9405 /* PauseLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
