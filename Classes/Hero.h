@@ -29,5 +29,6 @@
 @property (nonatomic,readwrite) float movementSpeed;
 
 -(id) initWithGame:(GameLayer *)game;
+-(void) update;
 
 @end

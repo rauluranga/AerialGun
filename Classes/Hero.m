@@ -31,7 +31,7 @@
 		mySprite = [CCSprite spriteWithFile:@"hero.png"];
 		[mySprite setPosition:ccp(160,50)];
 		
-		[theGame addChild:mySprite];
+		[theGame addChild:mySprite z:2];
 		
 		self.lasTimeFired = 0;
 		self.fireInterval = 3;
@@ -40,6 +40,11 @@
 	}
 	
 	return self;
+}
+
+-(void) update
+{
+	self.lasTimeFired += 0.1;
 }
 
 @end

@@ -57,6 +57,7 @@
 {
 	if ((self = [super init])) {
 		
+		self.isTouchEnabled = true;
 		self.isAccelerometerEnabled = true;
 		[[UIAccelerometer sharedAccelerometer] setUpdateInterval:(1.0 / 60)];
 		
@@ -90,6 +91,8 @@
 
 -(void)step:(ccTime *)dt
 {
+	[hero update];
+	
 	for (Enemy *e in enemies) {
 		if (e.launched) {
 			[e update];
@@ -99,7 +102,13 @@
 	for (Bullet *b in bullets) {
 		if (b.fired) {
 			[b update];
+		}else {
+			if (self.playerFiring && hero.lasTimeFired > hero.fireInterval) {
+				[b fire:1 position:hero.mySprite.position fspeed:hero.firingSpeed];
+				hero.lasTimeFired = 0;
+			}
 		}
+
 	}
 	
 	if (self.lastTimeEnemyLaunched > self.enemyInterval) {
@@ -142,5 +151,24 @@
 	}
 }
 
+- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	for(UITouch *touch in touches)
+	{
+		CGPoint location = [touch locationInView: [touch view]];
+		location = [[CCDirector sharedDirector] convertToGL:location];
+		[self setPlayerFiring:YES];
+	}
+}
+
+- (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	for(UITouch *touch in touches)
+	{
+		CGPoint location = [touch locationInView: [touch view]];
+		location = [[CCDirector sharedDirector] convertToGL:location];
+		[self setPlayerFiring:NO];
+	}
+}
 
 @end
