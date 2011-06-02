@@ -127,6 +127,15 @@
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
+	
+	CCScene *current = [[CCDirector sharedDirector] runningScene];
+	if ([current isKindOfClass:[GameScene class]]) {
+		if (![AerialGunAppDelegate get].paused) {
+			GameLayer *layer = (GameLayer *) [current getChildByTag:kGameLayer];
+			[layer pauseGame];
+		}
+	}
+	
 	[[CCDirector sharedDirector] pause];
 }
 
