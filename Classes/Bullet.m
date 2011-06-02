@@ -56,6 +56,7 @@
 {
 	
 	switch (self.whoFired) {
+			
 		case 1:
 			
 			[self.mySprite setPosition:ccp(self.mySprite.position.x,self.mySprite.position.y + self.firingSpeed)];
@@ -69,8 +70,15 @@
 			}
 			
 			break;
+			
 		case 2:
+			
 			[self.mySprite setPosition:ccp(self.mySprite.position.x,self.mySprite.position.y + self.firingSpeed)];
+			
+			if (ccpDistance(self.mySprite.position, theGame.hero.mySprite.position) < 30) {
+				[theGame.hero destroy];
+			}
+			
 			break;
 	}
 		

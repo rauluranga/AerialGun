@@ -19,6 +19,7 @@
 	float fireInterval;
 	float firingSpeed;
 	float movementSpeed;
+	bool reviving;
 }
 
 @property (nonatomic,retain) CCSprite *mySprite;
@@ -27,8 +28,10 @@
 @property (nonatomic,readwrite) float fireInterval;
 @property (nonatomic,readwrite) float firingSpeed;
 @property (nonatomic,readwrite) float movementSpeed;
+@property (nonatomic,readwrite) bool reviving;
 
 -(id) initWithGame:(GameLayer *)game;
 -(void) update;
+-(void) destroy;
 
 @end

@@ -42,5 +42,6 @@
 -(void) update;
 -(void) launch;
 -(void) damage;
+-(void) reset;
 //-(CGRect)myRecta;
 @end

@@ -185,4 +185,12 @@
 	return c;
 }
 
+-(void)loseLife
+{
+	self.lives--;
+	if (self.lives == 0) {
+		NSLog(@"GAME OVER");
+	}
+}
+
 @end

@@ -54,6 +54,7 @@
 
 
 -(CGRect)myRect:(CCSprite *)sp;
+-(void)loseLife;
 
 
 @end

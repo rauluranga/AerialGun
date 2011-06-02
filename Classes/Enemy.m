@@ -12,7 +12,7 @@
 @interface Enemy (private)
 
 -(void) destroy;
--(void) reset;
+
 
 @end
 
@@ -134,6 +134,14 @@
 	}
 }
 
+-(void) reset
+{
+	self.hp = self.maxHp;
+	self.launched = NO;
+	[self.mySprite setPosition:ccp(-500,200)];
+	
+}
+
 //-(CGRect)myRecta
 //{
 //	return CGRect();
@@ -153,12 +161,5 @@
 	NSLog(@"%d",theGame.score);
 }
 
--(void) reset
-{
-	self.hp = self.maxHp;
-	self.launched = NO;
-	[self.mySprite setPosition:ccp(-500,200)];
-
-}
 
 @end

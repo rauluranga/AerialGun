@@ -8,6 +8,15 @@
 
 #import "Hero.h"
 
+@interface Hero (private)
+
+-(BOOL)checkCollisions:(CGRect)r;
+-(void) finishReviving;
+
+@end
+
+
+
 
 @implementation Hero
 
@@ -17,6 +26,7 @@
 @synthesize fireInterval;
 @synthesize firingSpeed;
 @synthesize movementSpeed;
+@synthesize reviving;
 
 -(void) dealloc 
 {
@@ -45,6 +55,55 @@
 -(void) update
 {
 	self.lasTimeFired += 0.1;
+	
+	for (Enemy *s in theGame.enemies) {
+		if (ccpDistance(self.mySprite.position, s.mySprite.position) < 30) {
+			if ([self checkCollisions:[theGame myRect:s.mySprite]]) {
+				[s reset];
+				[self destroy];
+			}
+		}
+	}
+	
+	
+}
+
+-(void) destroy
+{
+	if (!self.reviving) {
+		self.reviving = YES;
+		[self.mySprite setPosition:ccp(160,-200)];
+		[self.mySprite runAction:[CCSequence actions:
+								  [CCDelayTime actionWithDuration:1],
+								  [CCEaseOut actionWithAction:[CCMoveTo actionWithDuration:1 position:ccp(160,50)] rate:5],
+								  [CCCallFunc actionWithTarget:self selector:@selector(finishReviving)],
+								  nil ]];
+	}
+	
+	[theGame loseLife];
 }
 
 @end
+
+
+#pragma mark -
+#pragma mark Private implementation
+
+@implementation Hero (private)
+
+-(BOOL)checkCollisions:(CGRect)r
+{
+	BOOL x = NO;
+	if (CGRectIntersectsRect([theGame myRect:self.mySprite], r)) {
+		x = YES;
+	}
+	return x;
+}
+
+-(void) finishReviving
+{
+	self.reviving = NO;
+}
+
+@end
+
