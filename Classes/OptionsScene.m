@@ -152,6 +152,22 @@
 		[menu setPosition:ccp(0,0)];
 		
 		
+		NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
+		
+		if ([userDef boolForKey:@"sound"] == NO) {
+			sound.selectedIndex = 1;
+		}
+		
+		if ([userDef boolForKey:@"music"] == NO) {
+			music.selectedIndex = 1;
+		}
+		
+		if ([userDef integerForKey:@"difficulty"] == 0) {
+			difficulty.selectedIndex = 0;
+		} else if ([userDef integerForKey:@"difficulty"] == 1) {
+			difficulty.selectedIndex = 1;
+		}
+		
 	}
 	return self;
 }
@@ -168,15 +184,38 @@
 -(void) changeDiffyculty:(CCMenuItemToggle *)sender
 {
 	NSLog(@"%d",sender.selectedIndex);
+	
+	NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
+	
+	if (sender.selectedIndex == 1) {
+		[userDef setInteger:1 forKey:@"difficulty"];
+	}
+	
+	if (sender.selectedIndex == 0) {
+		[userDef setInteger:0 forKey:@"difficulty"];
+	}
 }
 
 -(void) changeMusic:(CCMenuItemToggle *)sender
 {
+	NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
 	
+	if (sender.selectedIndex == 1) 
+		[userDef setBool:NO forKey:@"sound"];
+	
+	if (sender.selectedIndex == 0)
+		[userDef setBool:YES forKey:@"sound"];
 }
 
 -(void) changeSound:(CCMenuItemToggle *)sender
 {
+	NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
+	
+	if (sender.selectedIndex == 1) 
+		[userDef setBool:NO forKey:@"music"];
+	
+	if (sender.selectedIndex == 0)
+		[userDef setBool:YES forKey:@"music"];
 	
 }
 
