@@ -10,13 +10,19 @@
 
 
 @interface GameLayer (private)
-
+-(void) step:(ccTime *)dt;
 -(void) resetGame;
 
 @end
 
-
-
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 @implementation GameScene
@@ -59,6 +65,7 @@
 
 -(void) dealloc 
 {
+	NSLog(@"GameLayer dealloc called");
 	[super dealloc];
 }
 
@@ -73,7 +80,6 @@
 		self.isAccelerometerEnabled = true;
 		[[UIAccelerometer sharedAccelerometer] setUpdateInterval:(1.0 / 60)];
 		
-		//[self addChild:[MainMenuLayer node]];
 		hero = [[Hero alloc] initWithGame:self];
 		
 		enemies = [[NSMutableArray alloc] initWithCapacity:10];
@@ -95,43 +101,11 @@
 		lastTimeEnemyLaunched = 0;
 		enemyInterval = 20;
 		self.lives = STARTING_LIVES;
-		[self schedule:@selector(step:)];
 		
+		NSLog(@"init");
+		[self schedule:@selector(step:)];
 	}
 	return self;
-}
-
--(void)step:(ccTime *)dt
-{
-	[hero update];
-	
-	for (Enemy *e in enemies) {
-		if (e.launched) {
-			[e update];
-		}
-	}
-	
-	for (Bullet *b in bullets) {
-		if (b.fired) {
-			[b update];
-		}else {
-			if (self.playerFiring && hero.lasTimeFired > hero.fireInterval) {
-				[b fire:1 position:hero.mySprite.position fspeed:hero.firingSpeed];
-				hero.lasTimeFired = 0;
-			}
-		}
-
-	}
-	
-	if (self.lastTimeEnemyLaunched > self.enemyInterval) {
-		Enemy *n = (Enemy *) [enemies objectAtIndex:arc4random()% [enemies count]];
-		if (!n.launched) {
-			[n launch];
-			self.lastTimeEnemyLaunched = 0;
-		}
-	}
-	
-	lastTimeEnemyLaunched += 0.1;
 }
 
 #pragma mark -
@@ -233,18 +207,21 @@
 
 -(void)onEnter
 {
-	if ([AerialGunAppDelegate get].paused) {
+	NSLog(@"GameLayer onEnter");
+	if (![AerialGunAppDelegate get].paused) {
 		[super onEnter];
 	}
 }
 
 -(void)onExit
 {
+	NSLog(@"GameLayer onExit");
 	if (![AerialGunAppDelegate get].paused) {
 		[AerialGunAppDelegate get].paused = YES;
 		[super onExit];
 	}
 }
+
 
 @end
 
@@ -253,6 +230,40 @@
 #pragma mark Private implementation
 
 @implementation GameLayer (private)
+//
+-(void) step:(ccTime *)dt
+{	
+	[hero update];
+	
+	for (Enemy *e in enemies) {
+		if (e.launched) {
+			[e update];
+		}
+	}
+	
+	for (Bullet *b in bullets) {
+		if (b.fired) {
+			[b update];
+		}else {
+			if (self.playerFiring && hero.lasTimeFired > hero.fireInterval) {
+				[b fire:1 position:hero.mySprite.position fspeed:hero.firingSpeed];
+				hero.lasTimeFired = 0;
+			}
+		}
+		
+	}
+	
+	if (self.lastTimeEnemyLaunched > self.enemyInterval) {
+		Enemy *n = (Enemy *) [enemies objectAtIndex:arc4random()% [enemies count]];
+		if (!n.launched) {
+			[n launch];
+			NSLog(@"Enemy launch!");
+			self.lastTimeEnemyLaunched = 0;
+		}
+	}
+	
+	lastTimeEnemyLaunched += 0.1;
+}
 
 -(void)resetGame
 {
