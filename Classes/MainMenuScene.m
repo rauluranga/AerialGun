@@ -74,9 +74,37 @@
 		
 		CCMenu *menu = [CCMenu menuWithItems:newgame_item,options_item,about_item,nil];
 		[menu alignItemsVerticallyWithPadding:5];
-		[menu setPosition:ccp(240,120)];
+		[menu setPosition:ccp(480,120)];
 		
 		[self addChild:menu];
+		
+		
+		[newgame_item runAction:[CCSequence actions:
+								 [CCEaseOut actionWithAction:[CCMoveBy actionWithDuration:1 position:ccp(-240,0)] rate:2],
+								 [CCRepeat actionWithAction:[CCSequence actions:
+															[CCScaleTo actionWithDuration:1 scale:1.3],
+															[CCScaleTo actionWithDuration:1 scale:1]
+															,nil] times:9000],
+								 nil]];
+		
+		[options_item runAction:[CCSequence actions:
+								 [CCDelayTime actionWithDuration:0.5],
+								 [CCEaseOut actionWithAction:[CCMoveBy actionWithDuration:1 position:ccp(-240,0)] rate:2],
+								 [CCRepeat actionWithAction:[CCSequence actions:
+															 [CCScaleTo actionWithDuration:1 scale:1.3],
+															 [CCScaleTo actionWithDuration:1 scale:1]
+															 ,nil] times:9000],
+								 nil]];
+		
+		
+		[about_item runAction:[CCSequence actions:
+  							     [CCDelayTime actionWithDuration:1],
+								 [CCEaseOut actionWithAction:[CCMoveBy actionWithDuration:1 position:ccp(-240,0)] rate:2],
+								 [CCRepeat actionWithAction:[CCSequence actions:
+															 [CCScaleTo actionWithDuration:1 scale:1.3],
+															 [CCScaleTo actionWithDuration:1 scale:1]
+															 ,nil] times:9000],
+								 nil]];
 		
 	}
 	return self;
@@ -133,6 +161,9 @@
 									disabledImage:@"extreme_dis.png"
 									target:self
 									selector:@selector(selectMode:)];
+	
+	[extremeBtn setIsEnabled:NO];
+	
 	
 	[easyBtn setTag:1];
 	[normalBtn setTag:2];
