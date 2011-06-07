@@ -32,15 +32,16 @@
 	[super dealloc];
 }
 
--(id) init 
+-(id)initWithDifficulty:(int)mode
 {
 	if ((self = [super init])) {
-		[self addChild:[GameLayer node] z:0 tag:kGameLayer];
+		GameLayer *gameLayer = [[[GameLayer alloc] initWithDifficulty:mode] autorelease];
+		[self addChild:gameLayer z:0 tag:kGameLayer];
 		[self addChild:[HUDLayer node] z:1 tag:kHudLayer];
 	}
 	return self;
+	
 }
-
 
 @end
 
@@ -59,6 +60,7 @@
 @synthesize lives;
 @synthesize bombs;
 @synthesize level;
+@synthesize difficulty;
 
 #pragma mark -
 #pragma mark Memory management
@@ -72,12 +74,14 @@
 #pragma mark -
 #pragma mark Public Methods
 
--(id) init 
+-(id)initWithDifficulty:(int)mode
 {
 	if ((self = [super init])) {
 		
 		self.isTouchEnabled = true;
 		self.isAccelerometerEnabled = true;
+		self.difficulty = mode;
+		
 		[[UIAccelerometer sharedAccelerometer] setUpdateInterval:(1.0 / 60)];
 		
 		hero = [[Hero alloc] initWithGame:self];
@@ -99,7 +103,7 @@
 		}
 		
 		lastTimeEnemyLaunched = 0;
-		enemyInterval = 20;
+		enemyInterval = 20/self.difficulty;;
 		self.lives = STARTING_LIVES;
 		
 		NSLog(@"init");

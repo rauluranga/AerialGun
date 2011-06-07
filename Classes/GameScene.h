@@ -25,7 +25,7 @@
 @interface GameScene : CCScene {
 	
 }
-
+-(id)initWithDifficulty:(int)mode;
 @end
 
 @interface GameLayer : CCLayer {
@@ -43,6 +43,7 @@
 	int lives;
 	int bombs;
 	int level;
+	int difficulty;
 	
 }
 
@@ -56,12 +57,14 @@
 @property (assign, readwrite) int lives;
 @property (assign, readwrite) int bombs;
 @property (assign, readwrite) int level;
+@property (assign, readwrite) int difficulty;
 
 
 -(CGRect)myRect:(CCSprite *)sp;
 -(void)loseLife;
 -(void)pauseGame;
 -(void)resume;
+-(id)initWithDifficulty:(int)mode;
 
 
 @end

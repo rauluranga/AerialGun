@@ -57,39 +57,39 @@
 		[theGame addChild:mySprite z:2];
 		
 		switch (enType) {
-			
+				
 			case 1:
-				self.movementSpeed = 5;
+				self.movementSpeed = 5 * theGame.difficulty;
 				self.fireInterval = -1;
 				self.hp = self.maxHp = 1;
 				break;
 				
 			case 2:
-				self.movementSpeed = 3;
+				self.movementSpeed = 3 * theGame.difficulty;
 				self.fireInterval = 6;
 				self.hp = self.maxHp = 1;
 				break;
 			case 3:
-				self.movementSpeed = 1;
+				self.movementSpeed = 1 * theGame.difficulty;
 				self.fireInterval = 9;
 				self.hp = self.maxHp = 2;
 				break;
-
+				
 			case 4:
-				self.movementSpeed = 1;
+				self.movementSpeed = 1 * theGame.difficulty;
 				self.fireInterval = 8;
 				self.hp = self.maxHp = 2;
 				break;
-			
+				
 			default :
-				self.movementSpeed = 5;
+				self.movementSpeed = 5 * theGame.difficulty;
 				self.fireInterval = -1;
 				self.hp = self.maxHp = 1;
 				break;
 		}
 		
 		self.firingSpeed = -3 - self.movementSpeed;
-	
+		
 	}
 	
 	return self;
@@ -101,10 +101,10 @@
 	[self.mySprite setPosition:ccp(self.mySprite.position.x, self.mySprite.position.y - self.movementSpeed) ];
 	
 	for (Bullet *b in theGame.bullets) {
-		 if (self.fireInterval > 0 && !b.fired && self.lasTimeFired > self.fireInterval) {
-			 [b fire:2 position:self.mySprite.position fspeed:self.firingSpeed];
-			 self.lasTimeFired = 0;
-		 }
+		if (self.fireInterval > 0 && !b.fired && self.lasTimeFired > self.fireInterval) {
+			[b fire:2 position:self.mySprite.position fspeed:self.firingSpeed];
+			self.lasTimeFired = 0;
+		}
 	}
 	
 	self.lasTimeFired +=0.1;

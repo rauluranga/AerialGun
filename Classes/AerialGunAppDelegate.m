@@ -121,8 +121,9 @@
 	
 	// Run the intro Scene
 	//[[CCDirector sharedDirector] runWithScene: [HelloWorld scene]];
-	//[[CCDirector sharedDirector] runWithScene: [SplashScene	node]];
-	[[CCDirector sharedDirector] runWithScene: [GameScene	node]];
+	//[[CCDirector sharedDirector] runWithScene: [SplashScene node]];
+	//[[CCDirector sharedDirector] runWithScene: [GameScene	node]];
+	[[CCDirector sharedDirector] runWithScene: [MainMenuScene node]];
 }
 
 
