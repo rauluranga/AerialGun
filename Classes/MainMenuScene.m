@@ -8,6 +8,7 @@
 
 #import "MainMenuScene.h"
 #import "GameScene.h"
+#import "OptionsScene.h"
 
 
 @interface MainMenuLayer (private)
@@ -127,7 +128,9 @@
 
 -(void) options
 {
-	
+	OptionsScene *os = [OptionsScene node];
+	[[CCDirector sharedDirector] replaceScene:os];
+
 }
 
 -(void) about
