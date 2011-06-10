@@ -12,7 +12,8 @@
 @interface GameLayer (private)
 -(void) step:(ccTime *)dt;
 -(void) resetGame;
-
+-(void) explodeBomb;
+-(void) allowBoms;
 @end
 
 //
@@ -61,6 +62,8 @@
 @synthesize bombs;
 @synthesize level;
 @synthesize difficulty;
+@synthesize canLaunchBomb;
+
 
 #pragma mark -
 #pragma mark Memory management
@@ -81,6 +84,8 @@
 		self.isTouchEnabled = true;
 		self.isAccelerometerEnabled = true;
 		self.difficulty = mode;
+		self.canLaunchBomb = YES;
+		self.bombs = 3;
 		
 		[[UIAccelerometer sharedAccelerometer] setUpdateInterval:(1.0 / 60)];
 		
@@ -149,6 +154,13 @@
 		location = [[CCDirector sharedDirector] convertToGL:location];
 		[self setPlayerFiring:YES];
 	}
+	UITouch *t = [touches anyObject]; 
+	//if([touch tapCount] == 2) { 
+	if ([t tapCount] == 2 && canLaunchBomb && bombs > 0) {
+		[self explodeBomb];
+	}
+	
+	NSLog(@"touches tapCount: %d",[t tapCount]);
 }
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -288,5 +300,64 @@
 	
 	lives = STARTING_LIVES;
 }
+
+-(void) explodeBomb
+{
+	self.canLaunchBomb = NO;
+	self.bombs--;
+	
+	HUDLayer *hl = (HUDLayer *) [self.parent getChildByTag:kHudLayer];
+	[hl.bombs setString:[NSString stringWithFormat:@"X%d",self.bombs]];
+	
+	CCParticleExplosion *bomb = [CCParticleExplosion node];
+	[self addChild:bomb z:4];
+	
+	bomb.texture = [[CCTextureCache sharedTextureCache] addImage:@"explosionParticle.png"];
+	bomb.autoRemoveOnFinish = YES;
+	bomb.speed = 200;
+	[bomb setPosition:ccp(160,240)];
+	
+	for (Enemy * n in enemies) {
+		if (n.launched) {
+			[n destroy];
+		}
+	}
+	
+	[self schedule:@selector(allowBoms) interval:2];
+}
+
+-(void) allowBoms
+{
+	[self unschedule:@selector(allowBoms)];
+	self.canLaunchBomb = YES;
+}
+
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -97,6 +97,7 @@
 		C4AE6946139D9739000B03CC /* normal_dis.png in Resources */ = {isa = PBXBuildFile; fileRef = C4AE693D139D9739000B03CC /* normal_dis.png */; };
 		C4AE6947139D9739000B03CC /* normal_dwn.png in Resources */ = {isa = PBXBuildFile; fileRef = C4AE693E139D9739000B03CC /* normal_dwn.png */; };
 		C4AE6948139D9739000B03CC /* normal.png in Resources */ = {isa = PBXBuildFile; fileRef = C4AE693F139D9739000B03CC /* normal.png */; };
+		C4C1F33913A297CB00E11DD8 /* explosionParticle.png in Resources */ = {isa = PBXBuildFile; fileRef = C4C1F33813A297CB00E11DD8 /* explosionParticle.png */; };
 		C4ED727713970E2A00D9DCB2 /* AccelerometerSimulation.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ED727613970E2A00D9DCB2 /* AccelerometerSimulation.m */; };
 		C4F867281395A9660067B712 /* splash1.png in Resources */ = {isa = PBXBuildFile; fileRef = C4F867251395A9660067B712 /* splash1.png */; };
 		C4F867291395A9660067B712 /* splash2.png in Resources */ = {isa = PBXBuildFile; fileRef = C4F867261395A9660067B712 /* splash2.png */; };
@@ -393,6 +394,7 @@
 		C4AE693D139D9739000B03CC /* normal_dis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = normal_dis.png; sourceTree = "<group>"; };
 		C4AE693E139D9739000B03CC /* normal_dwn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = normal_dwn.png; sourceTree = "<group>"; };
 		C4AE693F139D9739000B03CC /* normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = normal.png; sourceTree = "<group>"; };
+		C4C1F33813A297CB00E11DD8 /* explosionParticle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explosionParticle.png; sourceTree = "<group>"; };
 		C4ED727513970E2A00D9DCB2 /* AccelerometerSimulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerometerSimulation.h; sourceTree = "<group>"; };
 		C4ED727613970E2A00D9DCB2 /* AccelerometerSimulation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccelerometerSimulation.m; sourceTree = "<group>"; };
 		C4F867251395A9660067B712 /* splash1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash1.png; sourceTree = "<group>"; };
@@ -810,6 +812,7 @@
 		50F414EB1069373D002A0D5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C4C1F33813A297CB00E11DD8 /* explosionParticle.png */,
 				C4A3128A139E9CEE008029DF /* options_background.png */,
 				C4A3128B139E9CEE008029DF /* options_check_d.png */,
 				C4A3128C139E9CEE008029DF /* options_check.png */,
@@ -1295,6 +1298,7 @@
 				C4A3128F139E9CEE008029DF /* options_check_d.png in Resources */,
 				C4A31290139E9CEE008029DF /* options_check.png in Resources */,
 				C4A31291139E9CEE008029DF /* options_goback.png in Resources */,
+				C4C1F33913A297CB00E11DD8 /* explosionParticle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

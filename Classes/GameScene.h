@@ -45,6 +45,8 @@
 	int level;
 	int difficulty;
 	
+	bool canLaunchBomb;
+	
 }
 
 @property (nonatomic, retain) Hero *hero;
@@ -58,6 +60,7 @@
 @property (assign, readwrite) int bombs;
 @property (assign, readwrite) int level;
 @property (assign, readwrite) int difficulty;
+@property (nonatomic, readwrite) bool canLaunchBomb;
 
 
 -(CGRect)myRect:(CCSprite *)sp;

@@ -8,14 +8,6 @@
 
 #import "Enemy.h"
 
-
-@interface Enemy (private)
-
--(void) destroy;
-
-
-@end
-
 #pragma mark -
 #pragma mark Public implementation
 
@@ -142,18 +134,6 @@
 	
 }
 
-//-(CGRect)myRecta
-//{
-//	return CGRect();
-//}
-
-@end
-
-#pragma mark -
-#pragma mark Private implementation
-
-@implementation Enemy (private)
-
 -(void) destroy
 {
 	[self reset];
@@ -165,5 +145,8 @@
 	NSLog(@"%d",theGame.score);
 }
 
-
 @end
+
+
+
+

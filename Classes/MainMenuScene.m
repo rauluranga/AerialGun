@@ -120,10 +120,12 @@
 
 -(void) newgame
 {
-	//GameScene *gs = [GameScene node];
-	//[[CCDirector sharedDirector] replaceScene:gs];
-	
+	/*/
+	GameScene *gs = [GameScene node];
+	[[CCDirector sharedDirector] replaceScene:gs];
+	/*/
 	[self showDifficultySelection];
+	//*/
 }
 
 -(void) options
