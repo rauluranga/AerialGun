@@ -7,7 +7,9 @@
 //
 
 #import "GameScene.h"
-
+#import "MainMenuScene.h"
+#import "CCMoveByRounded.h"
+#import "RippedHolder.h"
 
 @interface GameLayer (private)
 -(void) step:(ccTime *)dt;
@@ -64,6 +66,7 @@
 @synthesize difficulty;
 @synthesize canLaunchBomb;
 @synthesize smoke;
+@synthesize ripped;
 
 
 #pragma mark -
@@ -89,6 +92,36 @@
 		self.bombs = 3;
 		
 		[[UIAccelerometer sharedAccelerometer] setUpdateInterval:(1.0 / 60)];
+		
+		CCTMXTiledMap *map = [CCTMXTiledMap tiledMapWithTMXFile:@"tilemap.tmx"];
+		[self addChild:map];
+		
+		CCTMXLayer *cloudsLayer = [map layerNamed:@"Clouds"];
+		CCTMXLayer *othersLayer = [map layerNamed:@"Others"];
+		
+		backLayer = [map layerNamed:@"Background"];
+				
+		[self reorderChild:cloudsLayer z:10];
+		
+		[cloudsLayer runAction:[CCRepeatForever actionWithAction:[CCMoveByRounded actionWithDuration:0.3 position:ccp(0,-32)]]];
+		[othersLayer runAction:[CCRepeatForever actionWithAction:[CCMoveByRounded actionWithDuration:0.3 position:ccp(0,-32)]]];
+		[backLayer runAction:[CCRepeatForever actionWithAction:[CCMoveByRounded actionWithDuration:0.3 position:ccp(0,-32)]]];
+		
+		ripped = [[NSMutableArray alloc] init];
+		
+		CCTMXObjectGroup * rippedZones = [map objectGroupNamed:@"RippedZones"]; 
+		for (NSMutableDictionary *d in [rippedZones objects]) {
+			
+			CGRect rect = CGRectMake([[d valueForKey:@"x"] floatValue],
+									 [[d valueForKey:@"y"] floatValue],
+									 [[d valueForKey:@"width"] floatValue], 
+									 [[d valueForKey:@"height"] floatValue]);
+			
+			RippedHolder *holder = [[RippedHolder alloc] initWithRect:rect];
+			[ripped addObject:holder];
+			[holder release];
+		}
+		
 		
 		hero = [[Hero alloc] initWithGame:self];
 		
@@ -253,6 +286,21 @@
 //
 -(void) step:(ccTime *)dt
 {	
+	
+	float pos = -backLayer.position.y;
+	float limit = backLayer.mapTileSize.height * backLayer.layerSize.height - [CCDirector sharedDirector].winSize.height;
+	if (pos > limit) {
+		MainMenuScene *g = [MainMenuScene node];
+		[[CCDirector sharedDirector] replaceScene:g];
+	}
+		
+	for (RippedHolder *holder in ripped) {
+		holder.rippedRect = CGRectMake(holder.rippedRect.origin.x,
+									   holder.rippedRect.size.width,
+									   holder.originalY + backLayer.position.y,
+									   holder.rippedRect.size.height);
+	}
+		
 	[hero update];
 	
 	for (Enemy *e in enemies) {

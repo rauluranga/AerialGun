@@ -49,6 +49,9 @@
 	
 	CCParticleSystemPoint *smoke;
 	
+	CCTMXLayer *backLayer;
+	NSMutableArray *ripped; 
+	
 }
 
 @property (nonatomic, retain) Hero *hero;
@@ -64,7 +67,7 @@
 @property (assign, readwrite) int difficulty;
 @property (nonatomic, readwrite) bool canLaunchBomb;
 @property (nonatomic, retain) CCParticleSystemPoint *smoke;
-
+@property (nonatomic, retain) NSMutableArray *ripped;
 
 -(CGRect)myRect:(CCSprite *)sp;
 -(void)loseLife;

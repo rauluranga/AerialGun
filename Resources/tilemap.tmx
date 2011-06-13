@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="10" height="100" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tileimages" tilewidth="32" tileheight="32" spacing="2" margin="2">
+  <image source="tileimages.png"/>
+ </tileset>
+ <layer name="Background" width="10" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+3DQQ0AAAwDofNX/34mYx9IWDVVVVX19QE8lwjQoA8AAA==
+  </data>
+ </layer>
+ <layer name="Others" width="10" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA92XT0/CQBDFV096Ui6gJEpJQEg0HjBqIEBK8MT3/0C+Jd3kOczOtuWPhV/ykgm8QzuzM7N17i8zittQB3pwu6wofoKeoZ7i03gp4RlAwyK+gq4jvlforYhvoNuIbwJ9FPEddF/iGZhHqBv5b0pxBvUjvpziETQuYs75u/EMnPNP6Av6NvyeObSAlgnfGvpJeDybEh6JVT/Gqh9Tp36HYpq2bMkpPvb7X1J+z5U658LTxNq1KNbmnrYXMrc797S9wHNP4vfCKfKh1Uqbu7ny2znNXY2q+bX2kSfktyl5sfqQ3z03fHXOlnU/YDIXvx8wWp+0NCPBfWnVjfuyTN18Xzb1PB+CJs7gYzAjWaxI+8L3eAu+x1vwPX4fUnMtcOq5FuaI7A9Zs8zpc0TWzNq3kirzxROrrdz7sray38L3oKxtnX6ret5SvR+e6b96/xdJYS10oA8AAA==
+  </data>
+ </layer>
+ <layer name="Clouds" width="10" height="100" opacity="0.76">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+2WyQrAIAxEhS6HLv//u82xyGhrollKH+RgEJwMo5jSeyaqGfQXqvW23qh2sO+gOhvOk5BrKqGpqYYXb0s6cpAOS88lup8YOVe0nHL1asyJMoB6KAOcXFjCzXukvHnRytEx8j1qQdNDyVle/JKCPEA95IGHO2eJNANe3oseaNyHiH79GeHz1T+Dp79/by0XmhFxJqAPAAA=
+  </data>
+ </layer>
+ <objectgroup name="RippedZones" width="10" height="100">
+  <object name="ripped" x="129" y="3" width="30" height="48"/>
+  <object name="ripped" x="225" y="290" width="30" height="47"/>
+  <object name="ripped" x="35" y="268" width="25" height="37"/>
+  <object name="ripped" x="130" y="650" width="26" height="39"/>
+  <object name="ripped" x="260" y="1065" width="22" height="45"/>
+  <object name="ripped" x="162" y="1419" width="24" height="43"/>
+  <object name="ripped" x="128" y="1805" width="29" height="33"/>
+  <object name="ripped" x="100" y="2435" width="88" height="55"/>
+  <object name="ripped" x="129" y="2792" width="28" height="48"/>
+ </objectgroup>
+</map>
