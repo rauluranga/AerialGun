@@ -93,10 +93,18 @@
 		CCTMXTiledMap *map = [CCTMXTiledMap tiledMapWithTMXFile:@"tilemap.tmx"];
 		[self addChild:map];
 		
-		CCTMXLayer *clouds = [map layerNamed:@"Clouds"];
-		[self reorderChild:clouds z:10];
+		CCTMXLayer *cloudsLayer = [map layerNamed:@"Clouds"];
+		CCTMXLayer *othersLayer = [map layerNamed:@"Others"];
+		CCTMXLayer *backLayer = [map layerNamed:@"Background"];
+				
+		[self reorderChild:cloudsLayer z:10];
 		
-
+		[cloudsLayer runAction:[CCRepeatForever actionWithAction:[CCMoveBy actionWithDuration:0.3 position:ccp(0,-32)]]];
+		[othersLayer runAction:[CCRepeatForever actionWithAction:[CCMoveBy actionWithDuration:0.3 position:ccp(0,-32)]]];
+		[backLayer runAction:[CCRepeatForever actionWithAction:[CCMoveBy actionWithDuration:0.3 position:ccp(0,-32)]]];
+		
+		
+		
 		
 		hero = [[Hero alloc] initWithGame:self];
 		
