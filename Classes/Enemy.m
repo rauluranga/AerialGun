@@ -8,6 +8,7 @@
 
 #import "Enemy.h"
 
+
 #pragma mark -
 #pragma mark Public implementation
 
@@ -115,6 +116,13 @@
 
 -(void) damage
 {
+	ExplosionParticle *stars = [ExplosionParticle node];
+	[stars setPosition:self.mySprite.position];
+	[stars runAction:[CCMoveBy actionWithDuration:1 position:ccp(0,-100)]];
+	
+	[self.theGame addChild:stars z:5];
+	
+	
 	self.hp--;
 	[self.mySprite runAction:[CCSequence actions:
 							  [CCTintTo actionWithDuration:0.5 red:255 green:0 blue:0],

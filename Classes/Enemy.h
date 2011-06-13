@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "GameScene.h"
+#import "ExplosionParticle.h"
 
 @class GameLayer;
 
