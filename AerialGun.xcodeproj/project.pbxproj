@@ -69,6 +69,7 @@
 		C41821BE13A67AD30015CCBC /* enginesmoke.plist in Resources */ = {isa = PBXBuildFile; fileRef = C41821BD13A67AD30015CCBC /* enginesmoke.plist */; };
 		C41821EB13A6915C0015CCBC /* tileimages.png in Resources */ = {isa = PBXBuildFile; fileRef = C41821E913A6915C0015CCBC /* tileimages.png */; };
 		C41821EC13A6915C0015CCBC /* tilemap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = C41821EA13A6915C0015CCBC /* tilemap.tmx */; };
+		C418227513A6C76A0015CCBC /* CCMoveByRounded.m in Sources */ = {isa = PBXBuildFile; fileRef = C418227413A6C76A0015CCBC /* CCMoveByRounded.m */; };
 		C4706AFD13981276008E9405 /* HUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C4706AFC13981276008E9405 /* HUDLayer.m */; };
 		C4706B15139813C8008E9405 /* hud_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C4706B10139813C8008E9405 /* hud_background.png */; };
 		C4706B16139813C8008E9405 /* hud_bomb.png in Resources */ = {isa = PBXBuildFile; fileRef = C4706B11139813C8008E9405 /* hud_bomb.png */; };
@@ -365,6 +366,8 @@
 		C41821BD13A67AD30015CCBC /* enginesmoke.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = enginesmoke.plist; sourceTree = "<group>"; };
 		C41821E913A6915C0015CCBC /* tileimages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tileimages.png; sourceTree = "<group>"; };
 		C41821EA13A6915C0015CCBC /* tilemap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tilemap.tmx; sourceTree = "<group>"; };
+		C418227313A6C76A0015CCBC /* CCMoveByRounded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMoveByRounded.h; sourceTree = "<group>"; };
+		C418227413A6C76A0015CCBC /* CCMoveByRounded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMoveByRounded.m; sourceTree = "<group>"; };
 		C4706AFB13981276008E9405 /* HUDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDLayer.h; sourceTree = "<group>"; };
 		C4706AFC13981276008E9405 /* HUDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDLayer.m; sourceTree = "<group>"; };
 		C4706B10139813C8008E9405 /* hud_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hud_background.png; sourceTree = "<group>"; };
@@ -714,6 +717,8 @@
 				C4A3127B139E9BBB008029DF /* OptionsScene.m */,
 				C418218F13A66D410015CCBC /* ExplosionParticle.h */,
 				C418219013A66D410015CCBC /* ExplosionParticle.m */,
+				C418227313A6C76A0015CCBC /* CCMoveByRounded.h */,
+				C418227413A6C76A0015CCBC /* CCMoveByRounded.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1341,6 +1346,7 @@
 				C4706B62139844CD008E9405 /* PauseLayer.m in Sources */,
 				C4A3127C139E9BBB008029DF /* OptionsScene.m in Sources */,
 				C418219113A66D410015CCBC /* ExplosionParticle.m in Sources */,
+				C418227513A6C76A0015CCBC /* CCMoveByRounded.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

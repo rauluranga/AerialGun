@@ -8,7 +8,7 @@
 
 #import "GameScene.h"
 #import "MainMenuScene.h"
-
+#import "CCMoveByRounded.h"
 
 @interface GameLayer (private)
 -(void) step:(ccTime *)dt;
@@ -101,9 +101,9 @@
 				
 		[self reorderChild:cloudsLayer z:10];
 		
-		[cloudsLayer runAction:[CCRepeatForever actionWithAction:[CCMoveBy actionWithDuration:0.3 position:ccp(0,-32)]]];
-		[othersLayer runAction:[CCRepeatForever actionWithAction:[CCMoveBy actionWithDuration:0.3 position:ccp(0,-32)]]];
-		[backLayer runAction:[CCRepeatForever actionWithAction:[CCMoveBy actionWithDuration:0.3 position:ccp(0,-32)]]];
+		[cloudsLayer runAction:[CCRepeatForever actionWithAction:[CCMoveByRounded actionWithDuration:0.3 position:ccp(0,-32)]]];
+		[othersLayer runAction:[CCRepeatForever actionWithAction:[CCMoveByRounded actionWithDuration:0.3 position:ccp(0,-32)]]];
+		[backLayer runAction:[CCRepeatForever actionWithAction:[CCMoveByRounded actionWithDuration:0.3 position:ccp(0,-32)]]];
 		
 		
 		
