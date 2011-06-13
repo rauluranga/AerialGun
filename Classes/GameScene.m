@@ -90,6 +90,14 @@
 		
 		[[UIAccelerometer sharedAccelerometer] setUpdateInterval:(1.0 / 60)];
 		
+		CCTMXTiledMap *map = [CCTMXTiledMap tiledMapWithTMXFile:@"tilemap.tmx"];
+		[self addChild:map];
+		
+		CCTMXLayer *clouds = [map layerNamed:@"Clouds"];
+		[self reorderChild:clouds z:10];
+		
+
+		
 		hero = [[Hero alloc] initWithGame:self];
 		
 		enemies = [[NSMutableArray alloc] initWithCapacity:10];

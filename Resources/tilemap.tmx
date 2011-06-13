@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="10" height="100" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tileimages" tilewidth="32" tileheight="32" spacing="2" margin="2">
+  <image source="tileimages.png"/>
+ </tileset>
+ <layer name="Background" width="10" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+3DQQ0AAAwDofNX/34mYx9IWDVVVVX19QE8lwjQoA8AAA==
+  </data>
+ </layer>
+ <layer name="Others" width="10" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+WXywrCMBBFoytdaTe+QK3gCxQXirqpbnTl/3+QN9DAEPOYttam9cCFoVxoOpOZpELYGUBDaOTwSKbQDJp7fIo1w7OEVmncgtoW3w7ap3EH6lp8R+iUxj2oz1gDZQxNGL4YWjB8G2hreH5grucMXaCrx5dAN+ju8T2gJ+O9L4ZHx1U/iqt+lDz1q5Kyv//f81tnQqxdRGLT3DOdC7H4nHumc8E29yTyXKgqH02cuyay5teXF5XfOuSlzL31i/tBZDISaF+66kb7klM32Zeh7udvEOIMbgr0Hu+C3uNd0Ht8EUKd92qO+PojFsX+M0xkmS8SW231c1+vrd5v6n9Qr22efsu633y9r9ZUVe+/AVzWFLigDwAA
+  </data>
+ </layer>
+ <layer name="Clouds" width="10" height="100" opacity="0.78">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+2WyQrAIAxEhS6HLv//u82xyGhrollKH+RgEJwMo5jSeyaqGfQXqvW23qh2sO+gOhvOk5BrKqGpqYYXb0s6cpAOS88lup8YOVe0nHL1asyJMoB6KAOcXFjCzXukvHnRytEx8j1qQdNDyVle/JKCPEA95IGHO2eJNANe3oseaNyHiH79GeHz1T+Dp79/by0XmhFxJqAPAAA=
+  </data>
+ </layer>
+</map>
