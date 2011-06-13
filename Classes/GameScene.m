@@ -7,6 +7,7 @@
 //
 
 #import "GameScene.h"
+#import "MainMenuScene.h"
 
 
 @interface GameLayer (private)
@@ -95,7 +96,8 @@
 		
 		CCTMXLayer *cloudsLayer = [map layerNamed:@"Clouds"];
 		CCTMXLayer *othersLayer = [map layerNamed:@"Others"];
-		CCTMXLayer *backLayer = [map layerNamed:@"Background"];
+		
+		backLayer = [map layerNamed:@"Background"];
 				
 		[self reorderChild:cloudsLayer z:10];
 		
@@ -269,6 +271,14 @@
 //
 -(void) step:(ccTime *)dt
 {	
+	
+	float pos = -backLayer.position.y;
+	float limit = backLayer.mapTileSize.height * backLayer.layerSize.height - [CCDirector sharedDirector].winSize.height;
+	if (pos > limit) {
+		MainMenuScene *g = [MainMenuScene node];
+		[[CCDirector sharedDirector] replaceScene:g];
+	}
+	
 	[hero update];
 	
 	for (Enemy *e in enemies) {

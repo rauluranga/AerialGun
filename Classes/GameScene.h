@@ -49,6 +49,8 @@
 	
 	CCParticleSystemPoint *smoke;
 	
+	CCTMXLayer *backLayer;
+	
 }
 
 @property (nonatomic, retain) Hero *hero;
