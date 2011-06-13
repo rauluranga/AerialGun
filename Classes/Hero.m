@@ -7,6 +7,7 @@
 //
 
 #import "Hero.h"
+#import "RippedHolder.h"
 
 @interface Hero (private)
 
@@ -60,6 +61,14 @@
 		if (ccpDistance(self.mySprite.position, s.mySprite.position) < 30) {
 			if ([self checkCollisions:[theGame myRect:s.mySprite]]) {
 				[s reset];
+				[self destroy];
+			}
+		}
+	}
+	
+	for (RippedHolder *holder in theGame.ripped) {
+		if (ccpDistance(self.mySprite.position, ccp(holder.rippedRect.origin.x + holder.rippedRect.size.width/2 , holder.rippedRect.origin.y + holder.rippedRect.size.height/2)) < 30) {
+			if ([self checkCollisions:holder.rippedRect]) {
 				[self destroy];
 			}
 		}

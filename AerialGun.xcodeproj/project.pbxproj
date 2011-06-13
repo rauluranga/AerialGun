@@ -68,8 +68,9 @@
 		C418219113A66D410015CCBC /* ExplosionParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = C418219013A66D410015CCBC /* ExplosionParticle.m */; };
 		C41821BE13A67AD30015CCBC /* enginesmoke.plist in Resources */ = {isa = PBXBuildFile; fileRef = C41821BD13A67AD30015CCBC /* enginesmoke.plist */; };
 		C41821EB13A6915C0015CCBC /* tileimages.png in Resources */ = {isa = PBXBuildFile; fileRef = C41821E913A6915C0015CCBC /* tileimages.png */; };
-		C41821EC13A6915C0015CCBC /* tilemap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = C41821EA13A6915C0015CCBC /* tilemap.tmx */; };
 		C418227513A6C76A0015CCBC /* CCMoveByRounded.m in Sources */ = {isa = PBXBuildFile; fileRef = C418227413A6C76A0015CCBC /* CCMoveByRounded.m */; };
+		C418228413A6CBEB0015CCBC /* tilemap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = C418228313A6CBEB0015CCBC /* tilemap.tmx */; };
+		C418229013A6CDF50015CCBC /* RippedHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = C418228F13A6CDF50015CCBC /* RippedHolder.m */; };
 		C4706AFD13981276008E9405 /* HUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C4706AFC13981276008E9405 /* HUDLayer.m */; };
 		C4706B15139813C8008E9405 /* hud_background.png in Resources */ = {isa = PBXBuildFile; fileRef = C4706B10139813C8008E9405 /* hud_background.png */; };
 		C4706B16139813C8008E9405 /* hud_bomb.png in Resources */ = {isa = PBXBuildFile; fileRef = C4706B11139813C8008E9405 /* hud_bomb.png */; };
@@ -365,9 +366,11 @@
 		C418219013A66D410015CCBC /* ExplosionParticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExplosionParticle.m; sourceTree = "<group>"; };
 		C41821BD13A67AD30015CCBC /* enginesmoke.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = enginesmoke.plist; sourceTree = "<group>"; };
 		C41821E913A6915C0015CCBC /* tileimages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tileimages.png; sourceTree = "<group>"; };
-		C41821EA13A6915C0015CCBC /* tilemap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tilemap.tmx; sourceTree = "<group>"; };
 		C418227313A6C76A0015CCBC /* CCMoveByRounded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMoveByRounded.h; sourceTree = "<group>"; };
 		C418227413A6C76A0015CCBC /* CCMoveByRounded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMoveByRounded.m; sourceTree = "<group>"; };
+		C418228313A6CBEB0015CCBC /* tilemap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tilemap.tmx; sourceTree = "<group>"; };
+		C418228E13A6CDF50015CCBC /* RippedHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RippedHolder.h; sourceTree = "<group>"; };
+		C418228F13A6CDF50015CCBC /* RippedHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RippedHolder.m; sourceTree = "<group>"; };
 		C4706AFB13981276008E9405 /* HUDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDLayer.h; sourceTree = "<group>"; };
 		C4706AFC13981276008E9405 /* HUDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDLayer.m; sourceTree = "<group>"; };
 		C4706B10139813C8008E9405 /* hud_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hud_background.png; sourceTree = "<group>"; };
@@ -719,6 +722,8 @@
 				C418219013A66D410015CCBC /* ExplosionParticle.m */,
 				C418227313A6C76A0015CCBC /* CCMoveByRounded.h */,
 				C418227413A6C76A0015CCBC /* CCMoveByRounded.m */,
+				C418228E13A6CDF50015CCBC /* RippedHolder.h */,
+				C418228F13A6CDF50015CCBC /* RippedHolder.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -828,8 +833,8 @@
 		50F414EB1069373D002A0D5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C418228313A6CBEB0015CCBC /* tilemap.tmx */,
 				C41821E913A6915C0015CCBC /* tileimages.png */,
-				C41821EA13A6915C0015CCBC /* tilemap.tmx */,
 				C41821BD13A67AD30015CCBC /* enginesmoke.plist */,
 				C4C1F33813A297CB00E11DD8 /* explosionParticle.png */,
 				C4A3128A139E9CEE008029DF /* options_background.png */,
@@ -1320,7 +1325,7 @@
 				C4C1F33913A297CB00E11DD8 /* explosionParticle.png in Resources */,
 				C41821BE13A67AD30015CCBC /* enginesmoke.plist in Resources */,
 				C41821EB13A6915C0015CCBC /* tileimages.png in Resources */,
-				C41821EC13A6915C0015CCBC /* tilemap.tmx in Resources */,
+				C418228413A6CBEB0015CCBC /* tilemap.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1347,6 +1352,7 @@
 				C4A3127C139E9BBB008029DF /* OptionsScene.m in Sources */,
 				C418219113A66D410015CCBC /* ExplosionParticle.m in Sources */,
 				C418227513A6C76A0015CCBC /* CCMoveByRounded.m in Sources */,
+				C418229013A6CDF50015CCBC /* RippedHolder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #import "GameScene.h"
 #import "MainMenuScene.h"
 #import "CCMoveByRounded.h"
+#import "RippedHolder.h"
 
 @interface GameLayer (private)
 -(void) step:(ccTime *)dt;
@@ -65,6 +66,7 @@
 @synthesize difficulty;
 @synthesize canLaunchBomb;
 @synthesize smoke;
+@synthesize ripped;
 
 
 #pragma mark -
@@ -105,7 +107,20 @@
 		[othersLayer runAction:[CCRepeatForever actionWithAction:[CCMoveByRounded actionWithDuration:0.3 position:ccp(0,-32)]]];
 		[backLayer runAction:[CCRepeatForever actionWithAction:[CCMoveByRounded actionWithDuration:0.3 position:ccp(0,-32)]]];
 		
+		ripped = [[NSMutableArray alloc] init];
 		
+		CCTMXObjectGroup * rippedZones = [map objectGroupNamed:@"RippedZones"]; 
+		for (NSMutableDictionary *d in [rippedZones objects]) {
+			
+			CGRect rect = CGRectMake([[d valueForKey:@"x"] floatValue],
+									 [[d valueForKey:@"y"] floatValue],
+									 [[d valueForKey:@"width"] floatValue], 
+									 [[d valueForKey:@"height"] floatValue]);
+			
+			RippedHolder *holder = [[RippedHolder alloc] initWithRect:rect];
+			[ripped addObject:holder];
+			[holder release];
+		}
 		
 		
 		hero = [[Hero alloc] initWithGame:self];
@@ -278,7 +293,14 @@
 		MainMenuScene *g = [MainMenuScene node];
 		[[CCDirector sharedDirector] replaceScene:g];
 	}
-	
+		
+	for (RippedHolder *holder in ripped) {
+		holder.rippedRect = CGRectMake(holder.rippedRect.origin.x,
+									   holder.rippedRect.size.width,
+									   holder.originalY + backLayer.position.y,
+									   holder.rippedRect.size.height);
+	}
+		
 	[hero update];
 	
 	for (Enemy *e in enemies) {
