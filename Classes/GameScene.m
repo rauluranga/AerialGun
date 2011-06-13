@@ -63,6 +63,7 @@
 @synthesize level;
 @synthesize difficulty;
 @synthesize canLaunchBomb;
+@synthesize smoke;
 
 
 #pragma mark -
@@ -110,6 +111,9 @@
 		lastTimeEnemyLaunched = 0;
 		enemyInterval = 20/self.difficulty;;
 		self.lives = STARTING_LIVES;
+		
+		smoke = [CCParticleSystemPoint particleWithFile:@"engineSmoke.plist"];
+		[self addChild:smoke z:1];
 		
 		NSLog(@"init");
 		[self schedule:@selector(step:)];

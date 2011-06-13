@@ -65,6 +65,7 @@
 		}
 	}
 	
+	[theGame.smoke setPosition:ccp(self.mySprite.position.x - 2,self.mySprite.position.y - 20)];
 	
 }
 

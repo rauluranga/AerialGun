@@ -47,6 +47,8 @@
 	
 	bool canLaunchBomb;
 	
+	CCParticleSystemPoint *smoke;
+	
 }
 
 @property (nonatomic, retain) Hero *hero;
@@ -61,6 +63,7 @@
 @property (assign, readwrite) int level;
 @property (assign, readwrite) int difficulty;
 @property (nonatomic, readwrite) bool canLaunchBomb;
+@property (nonatomic, retain) CCParticleSystemPoint *smoke;
 
 
 -(CGRect)myRect:(CCSprite *)sp;
