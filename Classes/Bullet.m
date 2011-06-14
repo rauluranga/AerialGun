@@ -94,6 +94,9 @@
 	self.whoFired = who;
 	self.fired = YES;
 	[self.mySprite setPosition:position];
+	
+	[[AerialGunAppDelegate get].soundEngine playSound:SND_ID_BULLET sourceGroupId:CGROUP_ALL pitch:1 pan:0.0f gain:1.0f loop:NO];
+	
 }	
 
 @end

@@ -105,6 +105,11 @@
 		C4AE6948139D9739000B03CC /* normal.png in Resources */ = {isa = PBXBuildFile; fileRef = C4AE693F139D9739000B03CC /* normal.png */; };
 		C4C1F33913A297CB00E11DD8 /* explosionParticle.png in Resources */ = {isa = PBXBuildFile; fileRef = C4C1F33813A297CB00E11DD8 /* explosionParticle.png */; };
 		C4ED727713970E2A00D9DCB2 /* AccelerometerSimulation.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ED727613970E2A00D9DCB2 /* AccelerometerSimulation.m */; };
+		C4F6CD7813A7EE2800557E74 /* bullet.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4F6CD7313A7EE2800557E74 /* bullet.mp3 */; };
+		C4F6CD7913A7EE2800557E74 /* click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4F6CD7413A7EE2800557E74 /* click.mp3 */; };
+		C4F6CD7A13A7EE2800557E74 /* explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4F6CD7513A7EE2800557E74 /* explosion.mp3 */; };
+		C4F6CD7B13A7EE2800557E74 /* game_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4F6CD7613A7EE2800557E74 /* game_music.mp3 */; };
+		C4F6CD7C13A7EE2800557E74 /* menu_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4F6CD7713A7EE2800557E74 /* menu_music.mp3 */; };
 		C4F867281395A9660067B712 /* splash1.png in Resources */ = {isa = PBXBuildFile; fileRef = C4F867251395A9660067B712 /* splash1.png */; };
 		C4F867291395A9660067B712 /* splash2.png in Resources */ = {isa = PBXBuildFile; fileRef = C4F867261395A9660067B712 /* splash2.png */; };
 		C4F8672A1395A9660067B712 /* splash3.png in Resources */ = {isa = PBXBuildFile; fileRef = C4F867271395A9660067B712 /* splash3.png */; };
@@ -412,6 +417,11 @@
 		C4C1F33813A297CB00E11DD8 /* explosionParticle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explosionParticle.png; sourceTree = "<group>"; };
 		C4ED727513970E2A00D9DCB2 /* AccelerometerSimulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerometerSimulation.h; sourceTree = "<group>"; };
 		C4ED727613970E2A00D9DCB2 /* AccelerometerSimulation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccelerometerSimulation.m; sourceTree = "<group>"; };
+		C4F6CD7313A7EE2800557E74 /* bullet.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bullet.mp3; sourceTree = "<group>"; };
+		C4F6CD7413A7EE2800557E74 /* click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click.mp3; sourceTree = "<group>"; };
+		C4F6CD7513A7EE2800557E74 /* explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion.mp3; sourceTree = "<group>"; };
+		C4F6CD7613A7EE2800557E74 /* game_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = game_music.mp3; sourceTree = "<group>"; };
+		C4F6CD7713A7EE2800557E74 /* menu_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menu_music.mp3; sourceTree = "<group>"; };
 		C4F867251395A9660067B712 /* splash1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash1.png; sourceTree = "<group>"; };
 		C4F867261395A9660067B712 /* splash2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash2.png; sourceTree = "<group>"; };
 		C4F867271395A9660067B712 /* splash3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash3.png; sourceTree = "<group>"; };
@@ -833,6 +843,11 @@
 		50F414EB1069373D002A0D5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C4F6CD7313A7EE2800557E74 /* bullet.mp3 */,
+				C4F6CD7413A7EE2800557E74 /* click.mp3 */,
+				C4F6CD7513A7EE2800557E74 /* explosion.mp3 */,
+				C4F6CD7613A7EE2800557E74 /* game_music.mp3 */,
+				C4F6CD7713A7EE2800557E74 /* menu_music.mp3 */,
 				C418228313A6CBEB0015CCBC /* tilemap.tmx */,
 				C41821E913A6915C0015CCBC /* tileimages.png */,
 				C41821BD13A67AD30015CCBC /* enginesmoke.plist */,
@@ -1326,6 +1341,11 @@
 				C41821BE13A67AD30015CCBC /* enginesmoke.plist in Resources */,
 				C41821EB13A6915C0015CCBC /* tileimages.png in Resources */,
 				C418228413A6CBEB0015CCBC /* tilemap.tmx in Resources */,
+				C4F6CD7813A7EE2800557E74 /* bullet.mp3 in Resources */,
+				C4F6CD7913A7EE2800557E74 /* click.mp3 in Resources */,
+				C4F6CD7A13A7EE2800557E74 /* explosion.mp3 in Resources */,
+				C4F6CD7B13A7EE2800557E74 /* game_music.mp3 in Resources */,
+				C4F6CD7C13A7EE2800557E74 /* menu_music.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
