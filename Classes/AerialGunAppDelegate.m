@@ -13,6 +13,7 @@
 #import "RootViewController.h"
 #import "SplashScene.h"
 #import "GameScene.h"
+#import "CDAudioManager.h"
 
 @implementation AerialGunAppDelegate
 
@@ -126,6 +127,9 @@
 	[[CCDirector sharedDirector] runWithScene: [MainMenuScene node]];
 	
 	//*/
+	
+	[CDAudioManager configure:kAMM_FxPlusMusicIfNoOtherAudio];
+	
 	//self.soundEngine = [[[CDSoundEngine alloc] init:kAudioSessionCategory_AmbientSound] autorelease];
 	self.soundEngine = [[[CDSoundEngine alloc] init] autorelease];
 		
