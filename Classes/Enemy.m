@@ -151,6 +151,9 @@
 	[hl.score setString:[NSString stringWithFormat:@"Score %d",theGame.score]];
 	
 	NSLog(@"%d",theGame.score);
+	
+	[[AerialGunAppDelegate get].soundEngine playSound:SND_ID_EXPLOSION sourceGroupId:CGROUP_ALL pitch:1 pan:0.0f gain:1.0f loop:NO];
+
 }
 
 @end

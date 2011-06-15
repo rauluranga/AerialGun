@@ -13,12 +13,13 @@
 #import "RootViewController.h"
 #import "SplashScene.h"
 #import "GameScene.h"
+#import "CDAudioManager.h"
 
 @implementation AerialGunAppDelegate
 
 @synthesize window;
 @synthesize paused;
-
+@synthesize soundEngine;
 
 +(AerialGunAppDelegate *)get
 {
@@ -124,6 +125,22 @@
 	//[[CCDirector sharedDirector] runWithScene: [SplashScene node]];
 	//[[CCDirector sharedDirector] runWithScene: [GameScene	node]];
 	[[CCDirector sharedDirector] runWithScene: [MainMenuScene node]];
+	
+	//*/
+	
+	[CDAudioManager configure:kAMM_FxPlusMusicIfNoOtherAudio];
+	
+	//self.soundEngine = [[[CDSoundEngine alloc] init:kAudioSessionCategory_AmbientSound] autorelease];
+	self.soundEngine = [[[CDSoundEngine alloc] init] autorelease];
+		
+	NSArray *defs = [NSArray arrayWithObjects:[NSNumber numberWithInt:2],nil];
+	[self.soundEngine defineSourceGroups:defs];
+	
+	[self.soundEngine loadBuffer:SND_ID_BULLET filePath:@"bullet.mp3"];
+	[self.soundEngine loadBuffer:SND_ID_EXPLOSION filePath:@"explosion.mp3"];
+	[self.soundEngine loadBuffer:SND_ID_CLICK filePath:@"click.mp3"];
+	//*/
+
 }
 
 

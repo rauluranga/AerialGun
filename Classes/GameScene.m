@@ -10,6 +10,7 @@
 #import "MainMenuScene.h"
 #import "CCMoveByRounded.h"
 #import "RippedHolder.h"
+#import "CDAudioManager.h"
 
 @interface GameLayer (private)
 -(void) step:(ccTime *)dt;
@@ -84,6 +85,8 @@
 -(id)initWithDifficulty:(int)mode
 {
 	if ((self = [super init])) {
+		
+		[[CDAudioManager sharedManager] playBackgroundMusic:@"game_music.mp3" loop:YES];
 		
 		self.isTouchEnabled = true;
 		self.isAccelerometerEnabled = true;
