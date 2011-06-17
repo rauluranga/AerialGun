@@ -86,6 +86,8 @@
 {
 	if ((self = [super init])) {
 		
+		[AerialGunAppDelegate get].paused = NO;
+		
 		[[CDAudioManager sharedManager] playBackgroundMusic:@"game_music.mp3" loop:YES];
 		
 		self.isTouchEnabled = true;
@@ -245,6 +247,7 @@
 
 -(void)pauseGame
 {
+	
 	ccColor4B c = {100,100,0,100};
 	PauseLayer * p = [[[PauseLayer alloc] initWithColor:c] autorelease];
 	[self.parent addChild:p z:10];
@@ -257,6 +260,7 @@
 	if (![AerialGunAppDelegate get].paused) {
 		return;
 	}
+	[[CDAudioManager sharedManager] playBackgroundMusic:@"game_music.mp3" loop:YES];
 	[AerialGunAppDelegate get].paused = NO;
 	[self onEnter];
 }
@@ -265,6 +269,7 @@
 {
 	NSLog(@"GameLayer onEnter");
 	if (![AerialGunAppDelegate get].paused) {
+		NSLog(@"super onEnter");
 		[super onEnter];
 	}
 }
@@ -273,6 +278,7 @@
 {
 	NSLog(@"GameLayer onExit");
 	if (![AerialGunAppDelegate get].paused) {
+		[[CDAudioManager sharedManager] stopBackgroundMusic];
 		[AerialGunAppDelegate get].paused = YES;
 		[super onExit];
 	}
@@ -288,13 +294,18 @@
 @implementation GameLayer (private)
 //
 -(void) step:(ccTime *)dt
+	//NSLog(@"step");
 {	
 	
 	float pos = -backLayer.position.y;
 	float limit = backLayer.mapTileSize.height * backLayer.layerSize.height - [CCDirector sharedDirector].winSize.height;
 	if (pos > limit) {
+		
+		NSLog(@"end of road! .... going to main menu");
+		
 		MainMenuScene *g = [MainMenuScene node];
 		[[CCDirector sharedDirector] replaceScene:g];
+		
 	}
 		
 	for (RippedHolder *holder in ripped) {
@@ -353,7 +364,7 @@
 	self.bombs = 3;
 	[hl.bombs setString:@"X3"];
 	
-	lives = STARTING_LIVES;
+	self.lives = STARTING_LIVES;
 }
 
 -(void) explodeBomb
