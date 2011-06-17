@@ -88,9 +88,11 @@
 								  [CCEaseOut actionWithAction:[CCMoveTo actionWithDuration:1 position:ccp(160,50)] rate:5],
 								  [CCCallFunc actionWithTarget:self selector:@selector(finishReviving)],
 								  nil ]];
+		
+		[theGame loseLife];
 	}
 	
-	[theGame loseLife];
+	
 }
 
 @end
